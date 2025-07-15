@@ -123,7 +123,7 @@ const BUTTONS = [
     icon: ChatBubbleBottomCenterTextIcon,
     content: (
       <>
-        Feel free to reach out to me on{" "}
+        You can reach out to me on{" "}
         <a
           href="https://www.linkedin.com/in/michael-hum/"
           target="_blank"
@@ -141,7 +141,7 @@ const BUTTONS = [
         >
           GitHub
         </a>
-        , or at{" "}
+        , or even at{" "}
         <a
           href="mailto:michaelhum28@gmail.com"
           style={{ fontWeight: "bold" }}
@@ -149,9 +149,7 @@ const BUTTONS = [
           michaelhum28@gmail.com
         </a>
         . 
-        <div className="mt-4">
-  I'm always open to discussing new opportunities, or just having a chat!
-</div>
+        I'm always open to discussing new opportunities, or just having a chat!
       </>
     ),
   },
@@ -176,7 +174,7 @@ export default function App() {
       >
         <button
           onClick={() => setActiveSection("about")}
-          className="flex items-center bg-white border border-black px-6 py-3 shadow focus:outline-none hover:bg-gray-50"
+          className="flexitems-center bg-white border border-black px-6 py-3 shadow focus:outline-none hover:bg-gray-50"
         >
           <h1 className="text-4xl font-extrabold cursor-pointer select-none text-black">
             Michael Hum
@@ -213,13 +211,8 @@ export default function App() {
         </h2>
         {activeSection === "about" ? (
           <p className="text-base leading-relaxed">
-            <span>
               Hi there! I’m an engineer who loves solving problems and building practical solutions.
-            </span>
-            <br />
-            <span className="block mt-4">
-              I’m passionate about software development and system design, and I enjoy working with teams to bring ideas to reality.
-            </span>
+              I’m passionate about software and hardware engineering.
           </p>
         ) : (
           <div className="text-base leading-relaxed">
