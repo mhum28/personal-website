@@ -75,7 +75,7 @@ const BUTTONS = [
       </li>
       <li>
         <a
-          href="https://github.com/michaelhum28/pathfinding-engine"
+          href="https://github.com/mhum28/pathfinding-engine"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -85,7 +85,7 @@ const BUTTONS = [
       </li>
       <li>
         <a
-          href="https://github.com/michaelhum28/kmap-solver"
+          href="https://github.com/mhum28/kmap-solver"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -95,7 +95,7 @@ const BUTTONS = [
       </li>
       <li>
         <a
-          href="https://github.com/michaelhum28/risc-processor"
+          href="https://github.com/mhum28/risc-processor"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -105,7 +105,7 @@ const BUTTONS = [
       </li>
       <li>
         <a
-          href="https://github.com/michaelhum28/uart-traffic-light-controller"
+          href="https://github.com/mhum28/uart-traffic-light-controller"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -134,7 +134,7 @@ const BUTTONS = [
         </a>
         ,{" "}
         <a
-          href="https://github.com/michaelhum28"
+          href="https://github.com/mhum28"
           target="_blank"
           rel="noopener noreferrer"
           style={{ fontWeight: "bold" }}
