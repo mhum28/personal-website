@@ -2,7 +2,7 @@
   "name": "personal-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/michaelhum28/personal-website",
+  "homepage": "https://michaelhum28.github.io/personal-website/",
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@testing-library/dom": "^10.4.0",
