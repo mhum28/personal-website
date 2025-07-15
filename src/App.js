@@ -58,68 +58,65 @@ const BUTTONS = [
     ),
   },
   {
-    id: "projects",
-    label: "Projects",
-    icon: FolderIcon,
-    content: (
-      <ul className="list-disc pl-5 space-y-1">
-        <li>
-          <a
-            href="https://your-hotel-booking-link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <strong>Hotel Booking System</strong>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://your-medihub-link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <strong>MediHub</strong>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://your-pathfinding-link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <strong>Pathfinding Engine</strong>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://your-kmap-solver-link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <strong>Karnaugh Map Solver</strong>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://your-risc-processor-link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <strong>RISC Processor</strong>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://your-uart-controller-link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <strong>UART Controller</strong>
-          </a>
-        </li>
-      </ul>
-    ),
-  },
+  id: "projects",
+  label: "Projects",
+  icon: FolderIcon,
+  content: (
+    <ul className="list-disc pl-5 space-y-2">
+      <li>
+        <a
+          href="https://github.com/uOttawaSEGA2023/Medihub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>MediHub</strong>
+        </a>
+        : Mobile health care app to manage medical appointments
+      </li>
+      <li>
+        <a
+          href="https://github.com/michaelhum28/pathfinding-engine"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>Pathfinding Engine</strong>
+        </a>
+        : Visualization of a pathfinding algorithm across a grid
+      </li>
+      <li>
+        <a
+          href="https://github.com/michaelhum28/kmap-solver"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>Karnaugh Map Solver</strong>
+        </a>
+        : Simplifying boolean expression using Karnaugh maps
+      </li>
+      <li>
+        <a
+          href="https://github.com/michaelhum28/risc-processor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>RISC Processor</strong>
+        </a>
+        : Simulated RISC-based processor on a FPGA built in VHDL
+      </li>
+      <li>
+        <a
+          href="https://github.com/michaelhum28/uart-traffic-light-controller"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>UART Controller</strong>
+        </a>
+        : UART communication on a FPGA across a traffic light controller
+      </li>
+    </ul>
+  ),
+},
+
   {
     id: "connect",
     label: "Connect",
@@ -151,7 +148,10 @@ const BUTTONS = [
         >
           michaelhum28@gmail.com
         </a>
-        . I'm always open to discussing new opportunities, or just having a chat!
+        . 
+        <div className="mt-4">
+  I'm always open to discussing new opportunities, or just having a chat!
+</div>
       </>
     ),
   },
@@ -163,71 +163,73 @@ export default function App() {
   const easing = [0.4, 0, 0.2, 1];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-50 p-6">
-      <AnimatePresence mode="wait">
-        {!activeSection ? (
-          <motion.div
-            key="header-buttons"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: easing } }}
-            exit={{ opacity: 0, y: -20, transition: { duration: 0.6, ease: easing } }}
-            layout
-            className="flex flex-col items-center space-y-6"
-          >
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-200 p-6">
+  <AnimatePresence mode="wait">
+    {!activeSection ? (
+      <motion.div
+        key="header-buttons"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: easing } }}
+        exit={{ opacity: 0, y: -20, transition: { duration: 0.6, ease: easing } }}
+        layout
+        className="flex flex-col items-center space-y-6"
+      >
+        <button
+          onClick={() => setActiveSection("about")}
+          className="flex items-center bg-white border border-black px-6 py-3 shadow focus:outline-none hover:bg-gray-50"
+        >
+          <h1 className="text-4xl font-extrabold cursor-pointer select-none text-black">
+            Michael Hum
+          </h1>
+        </button>
+
+        <div className="flex space-x-4">
+          {BUTTONS.map(({ id, label, icon: Icon }) => (
             <button
-              onClick={() => setActiveSection("about")}
-              className="flex items-center rounded-full bg-white px-6 py-3 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              key={id}
+              onClick={() => setActiveSection(id)}
+              className="flex items-center space-x-2 px-5 py-2 bg-white border border-black text-black hover:bg-gray-50 transition text-sm"
             >
-              <h1 className="text-4xl font-extrabold cursor-pointer select-none">
-                Michael Hum
-              </h1>
+              <Icon className="h-5 w-5 text-black" />
+              <span>{label}</span>
             </button>
-
-            <div className="flex space-x-4">
-              {BUTTONS.map(({ id, label, icon: Icon }) => (
-                <button
-                  key={id}
-                  onClick={() => setActiveSection(id)}
-                  className="flex items-center space-x-2 px-5 py-2 bg-white border border-gray-300 rounded-full shadow hover:bg-gray-100 transition text-sm"
-                >
-                  <Icon className="h-5 w-5 text-gray-700" />
-                  <span className="text-gray-800">{label}</span>
-                </button>
-              ))}
-            </div>
-          </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    ) : (
+      <motion.button
+        key="content"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: easing } }}
+        exit={{ opacity: 0, y: 20, transition: { duration: 0.6, ease: easing } }}
+        layout
+        onClick={() => setActiveSection(null)}
+        className="max-w-2xl text-left text-black mt-8 bg-white p-8 border border-black shadow-lg cursor-pointer focus:outline-none hover:bg-gray-50"
+      >
+        <h2 className="text-xl font-semibold mb-4 text-black">
+          {activeSection === "about"
+            ? "About Me"
+            : BUTTONS.find((b) => b.id === activeSection)?.label}
+        </h2>
+        {activeSection === "about" ? (
+          <p className="text-base leading-relaxed">
+            <span>
+              Hi there! I’m an engineer who loves solving problems and building practical solutions.
+            </span>
+            <br />
+            <span className="block mt-4">
+              I’m passionate about software development and system design, and I enjoy working with teams to bring ideas to reality.
+            </span>
+          </p>
         ) : (
-          <motion.button
-            key="content"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: easing } }}
-            exit={{ opacity: 0, y: 20, transition: { duration: 0.6, ease: easing } }}
-            layout
-            onClick={() => setActiveSection(null)}
-            className="max-w-xl text-left text-gray-700 mt-8 bg-white p-8 rounded-3xl shadow-lg cursor-pointer
-              focus:outline-none focus:ring-2 focus:ring-blue-400"
-          >
-            <h2 className="text-xl font-semibold mb-4 text-gray-900">
-              {activeSection === "about"
-                ? "About Me"
-                : BUTTONS.find((b) => b.id === activeSection)?.label}
-            </h2>
-            {activeSection === "about" ? (
-              <p className="text-sm"> {/* Added text-sm here */}
-                <span>Hi there! I’m a computer engineer who loves solving problems and building practical solutions that make an impact.</span>
-                <br />
-                <span className="block mt-4">I’m passionate about software development and system design, and I enjoy working with teams to bring ideas to reality.</span>
-              </p>
-
-            ) : (
-              <p className="whitespace-pre-line text-sm"> {/* Added text-sm here */}
-                {BUTTONS.find((b) => b.id === activeSection)?.content}
-              </p>
-            )}
-            <div className="mt-4 text-sm text-gray-500 italic"></div>
-          </motion.button>
+          <div className="text-base leading-relaxed">
+            {BUTTONS.find((b) => b.id === activeSection)?.content}
+          </div>
         )}
-      </AnimatePresence>
-    </div>
+      </motion.button>
+    )}
+  </AnimatePresence>
+</div>
+
   );
 }
