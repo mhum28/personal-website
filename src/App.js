@@ -141,7 +141,7 @@ const BUTTONS = [
         >
           GitHub
         </a>
-        , or at{" "}
+        , or directly at{" "}
         <a
           href="mailto:michaelhum28@gmail.com"
           style={{ fontWeight: "bold" }}
