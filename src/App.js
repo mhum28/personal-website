@@ -123,7 +123,7 @@ const BUTTONS = [
     icon: ChatBubbleBottomCenterTextIcon,
     content: (
       <>
-        You can reach out to me on{" "}
+        You can reach me on{" "}
         <a
           href="https://www.linkedin.com/in/michael-hum/"
           target="_blank"
@@ -149,7 +149,7 @@ const BUTTONS = [
           michaelhum28@gmail.com
         </a>
         . 
-        I'm always open to discussing new opportunities, or just having a chat!
+        Always open to discussing new opportunities, or just having a chat!
       </>
     ),
   },
