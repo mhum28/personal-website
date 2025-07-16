@@ -141,7 +141,7 @@ const BUTTONS = [
         >
           GitHub
         </a>
-        , or even at{" "}
+        , or at{" "}
         <a
           href="mailto:michaelhum28@gmail.com"
           style={{ fontWeight: "bold" }}
@@ -165,35 +165,37 @@ export default function App() {
   <AnimatePresence mode="wait">
     {!activeSection ? (
       <motion.div
-        key="header-buttons"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: easing } }}
-        exit={{ opacity: 0, y: -20, transition: { duration: 0.6, ease: easing } }}
-        layout
-        className="flex flex-col items-center space-y-6"
-      >
-        <button
-          onClick={() => setActiveSection("about")}
-          className="flexitems-center bg-white border border-black px-6 py-3 shadow focus:outline-none hover:bg-gray-50"
-        >
-          <h1 className="text-4xl font-extrabold cursor-pointer select-none text-black">
-            Michael Hum
-          </h1>
-        </button>
+  key="header-buttons"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: easing } }}
+  exit={{ opacity: 0, y: -20, transition: { duration: 0.6, ease: easing } }}
+  layout
+  className="flex flex-col items-center justify-center space-y-8 w-full px-4"
+>
+  <button
+    onClick={() => setActiveSection("about")}
+    className="bg-white border border-black px-6 py-3 shadow focus:outline-none hover:bg-gray-50"
+  >
+    <h1 className="text-4xl font-extrabold cursor-pointer select-none text-black text-center">
+      Michael Hum
+    </h1>
+  </button>
 
-        <div className="flex space-x-4">
-          {BUTTONS.map(({ id, label, icon: Icon }) => (
-            <button
-              key={id}
-              onClick={() => setActiveSection(id)}
-              className="flex items-center space-x-2 px-5 py-2 bg-white border border-black text-black hover:bg-gray-50 transition text-sm"
-            >
-              <Icon className="h-5 w-5 text-black" />
-              <span>{label}</span>
-            </button>
-          ))}
-        </div>
-      </motion.div>
+  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+  {BUTTONS.map(({ id, label, icon: Icon }) => (
+    <button
+      key={id}
+      onClick={() => setActiveSection(id)}
+      className="flex items-center justify-center space-x-2 px-4 py-2 bg-white border border-black text-black hover:bg-gray-50 transition text-sm"
+    >
+      <Icon className="h-5 w-5 text-black" />
+      <span>{label}</span>
+    </button>
+  ))}
+</div>
+
+</motion.div>
+
     ) : (
       <motion.button
         key="content"
