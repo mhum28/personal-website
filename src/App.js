@@ -40,11 +40,23 @@ const BUTTONS = [
     ),
   },
   {
-    id: "experience",
-    label: "Experience",
-    icon: BriefcaseIcon,
-    content: (
-      <div>
+  id: "experience",
+  label: "Experience",
+  icon: BriefcaseIcon,
+  content: (
+    <ul className="list-disc pl-5 space-y-2">
+      <li>
+        Software Engineer @{" "}
+        <a
+          href="https://www.kaplet.ca/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>SecureRx Technologies (Kaplet)</strong>
+        </a>{" "}
+        (Sep. 2025 - Dec. 2025)
+      </li>
+      <li>
         Software Developer @{" "}
         <a
           href="https://www.access.on.ca/"
@@ -54,9 +66,11 @@ const BUTTONS = [
           <strong>Access Group Inc.</strong>
         </a>{" "}
         (May 2025 - Aug. 2025)
-      </div>
-    ),
-  },
+      </li>
+    </ul>
+  ),
+},
+
   {
   id: "projects",
   label: "Projects",
