@@ -48,7 +48,7 @@ const BUTTONS = [
       <li>
         Software Engineer @{" "}
         <a
-          href="https://www.kaplet.ca/"
+          href="https://secure-rx.ca/"
           target="_blank"
           rel="noopener noreferrer"
         >
