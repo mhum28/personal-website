@@ -1,244 +1,84 @@
-import { useState } from "react";
-import {
-  AcademicCapIcon,
-  BriefcaseIcon,
-  FolderIcon,
-  ChatBubbleBottomCenterTextIcon,
-} from "@heroicons/react/24/outline";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
-const BUTTONS = [
-  {
-    id: "education",
-    label: "Education",
-    icon: AcademicCapIcon,
-    content: (
-      <>
-        <div>
-          Bachelor's in Computer Engineering @{" "}
-          <a
-            href="https://www.uottawa.ca/en"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <strong>University of Ottawa</strong>
-          </a>{" "}
-          (Sep. 2022 - Apr. 2026)
-        </div>
-        <div>
-          High School Diploma @{" "}
-          <a
-            href="https://www.richmondhillhs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <strong>Richmond Hill High School</strong>
-          </a>{" "}
-          (Sep. 2018 - Jun. 2022)
-        </div>
-      </>
-    ),
-  },
-  {
-  id: "experience",
-  label: "Experience",
-  icon: BriefcaseIcon,
-  content: (
-    <ul className="list-disc pl-5 space-y-2">
-      <li>
-        Software Engineer @{" "}
-        <a
-          href="https://secure-rx.ca/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <strong>SecureRx Technologies (Kaplet)</strong>
-        </a>{" "}
-        (Sep. 2025 - Dec. 2025)
-      </li>
-      <li>
-        Software Developer @{" "}
-        <a
-          href="https://www.access.on.ca/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <strong>Access Group Inc.</strong>
-        </a>{" "}
-        (May 2025 - Aug. 2025)
-      </li>
-    </ul>
-  ),
-},
+const fade = (delay = 0) => ({
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.4, delay } },
+});
 
-  {
-  id: "projects",
-  label: "Projects",
-  icon: FolderIcon,
-  content: (
-    <ul className="list-disc pl-5 space-y-2">
-      <li>
-        <a
-          href="https://github.com/uOttawaSEGA2023/Medihub"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <strong>MediHub</strong>
-        </a>
-        : Mobile health care app to manage medical appointments
-      </li>
-      <li>
-        <a
-          href="https://github.com/mhum28/pathfinding-engine"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <strong>Pathfinding Engine</strong>
-        </a>
-        : Visualization of a pathfinding algorithm across a grid
-      </li>
-      <li>
-        <a
-          href="https://github.com/mhum28/kmap-solver"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <strong>Karnaugh Map Solver</strong>
-        </a>
-        : Simplifying boolean expression using Karnaugh maps
-      </li>
-      <li>
-        <a
-          href="https://github.com/mhum28/risc-processor"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <strong>RISC Processor</strong>
-        </a>
-        : Simulated RISC-based processor on a FPGA built in VHDL
-      </li>
-      <li>
-        <a
-          href="https://github.com/mhum28/uart-traffic-light-controller"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <strong>UART Controller</strong>
-        </a>
-        : UART communication on a FPGA across a traffic light controller
-      </li>
-    </ul>
-  ),
-},
+const links = {
+  uottawa: "https://www.uottawa.ca/en",
+  rhhs: "https://www.richmondhillhs.org/",
+  securerx: "https://secure-rx.ca/",
+  access: "https://www.access.on.ca/",
+  medihub: "https://github.com/uOttawaSEGA2023/Medihub",
+  pathfinding: "https://github.com/mhum28/pathfinding-engine",
+  kmap: "https://github.com/mhum28/kmap-solver",
+  risc: "https://github.com/mhum28/risc-processor",
+  uart: "https://github.com/mhum28/uart-traffic-light-controller",
+  linkedin: "https://www.linkedin.com/in/michael-hum/",
+  github: "https://github.com/mhum28",
+};
 
-  {
-    id: "connect",
-    label: "Connect",
-    icon: ChatBubbleBottomCenterTextIcon,
-    content: (
-      <>
-        You can reach me on{" "}
-        <a
-          href="https://www.linkedin.com/in/michael-hum/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ fontWeight: "bold" }}
-        >
-          LinkedIn
-        </a>
-        ,{" "}
-        <a
-          href="https://github.com/mhum28"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ fontWeight: "bold" }}
-        >
-          GitHub
-        </a>
-        , or directly at{" "}
-        <a
-          href="mailto:michaelhum28@gmail.com"
-          style={{ fontWeight: "bold" }}
-        >
-          michaelhum28@gmail.com
-        </a>
-        . 
-        Always open to discussing new opportunities, or just having a chat!
-      </>
-    ),
-  },
-];
+function A({ href, children }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="font-semibold hover:underline">
+      {children}
+    </a>
+  );
+}
+
+function Row({ label, children, delay }) {
+  return (
+    <motion.div {...fade(delay)} className="grid grid-cols-[120px_1fr] gap-x-8 py-4 border-t border-black">
+      <span className="text-xs uppercase tracking-widest text-gray-400 pt-0.5">{label}</span>
+      <div className="text-sm leading-relaxed space-y-1.5">{children}</div>
+    </motion.div>
+  );
+}
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState(null);
-
-  const easing = [0.4, 0, 0.2, 1];
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-200 p-6">
-  <AnimatePresence mode="wait">
-    {!activeSection ? (
-      <motion.div
-  key="header-buttons"
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: easing } }}
-  exit={{ opacity: 0, y: -20, transition: { duration: 0.6, ease: easing } }}
-  layout
-  className="flex flex-col items-center justify-center space-y-8 w-full px-4"
->
-  <button
-    onClick={() => setActiveSection("about")}
-    className="bg-white border border-black px-6 py-3 shadow focus:outline-none hover:bg-gray-50"
-  >
-    <h1 className="text-4xl font-extrabold cursor-pointer select-none text-black text-center">
-      Michael Hum
-    </h1>
-  </button>
+    <div className="min-h-screen bg-white flex items-center justify-center px-8 py-12">
+      <div className="w-full max-w-xl">
 
-  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-  {BUTTONS.map(({ id, label, icon: Icon }) => (
-    <button
-      key={id}
-      onClick={() => setActiveSection(id)}
-      className="flex items-center justify-center space-x-2 px-4 py-2 bg-white border border-black text-black hover:bg-gray-50 transition text-sm"
-    >
-      <Icon className="h-5 w-5 text-black" />
-      <span>{label}</span>
-    </button>
-  ))}
-</div>
-
-</motion.div>
-
-    ) : (
-      <motion.button
-        key="content"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: easing } }}
-        exit={{ opacity: 0, y: 20, transition: { duration: 0.6, ease: easing } }}
-        layout
-        onClick={() => setActiveSection(null)}
-        className="max-w-2xl text-left text-black mt-8 bg-white p-8 border border-black shadow-lg cursor-pointer focus:outline-none hover:bg-gray-50"
-      >
-        <h2 className="text-xl font-semibold mb-4 text-black">
-          {activeSection === "about"
-            ? "About Me"
-            : BUTTONS.find((b) => b.id === activeSection)?.label}
-        </h2>
-        {activeSection === "about" ? (
-          <p className="text-base leading-relaxed">
-              Hi there! I’m an engineer who loves solving problems and building practical solutions.
-              I’m passionate about software and hardware engineering.
+        <motion.div {...fade(0)} className="mb-8">
+          <h1 className="text-4xl font-black tracking-tight text-black">Michael Hum</h1>
+          <p className="text-sm text-gray-500 mt-1">
+            Computer Engineering · Software Engineer
           </p>
-        ) : (
-          <div className="text-base leading-relaxed">
-            {BUTTONS.find((b) => b.id === activeSection)?.content}
-          </div>
-        )}
-      </motion.button>
-    )}
-  </AnimatePresence>
-</div>
+        </motion.div>
 
+        <Row label="About" delay={0.1}>
+          <p>Hi, I'm Michael, a 4th-year Computer Engineering student at the University of Ottawa. I like building things that are clean, practical, and work.</p>
+        </Row>
+
+        <Row label="Education" delay={0.15}>
+          <p className="flex justify-between"><span>B.Eng. Computer Engineering · <A href={links.uottawa}>University of Ottawa</A></span><span className="text-gray-400 shrink-0 ml-4">2022 – 2026</span></p>
+          <p className="flex justify-between"><span>High School · <A href={links.rhhs}>Richmond Hill HS</A></span><span className="text-gray-400 shrink-0 ml-4">2018 – 2022</span></p>
+        </Row>
+
+        <Row label="Experience" delay={0.2}>
+          <p className="flex justify-between"><span>Software Engineer · <A href={links.securerx}>SecureRx Technologies</A></span><span className="text-gray-400 shrink-0 ml-4">Sep – Present</span></p>
+          <p className="flex justify-between"><span>Software Developer · <A href={links.access}>Access Group Inc.</A></span><span className="text-gray-400 shrink-0 ml-4">May – Aug 2025</span></p>
+        </Row>
+
+        <Row label="Projects" delay={0.25}>
+          <p><A href={links.medihub}>MediHub</A> — mobile health app for medical appointments</p>
+          <p><A href={links.pathfinding}>Pathfinding Engine</A> — algorithm visualization on a grid</p>
+          <p><A href={links.kmap}>Karnaugh Map Solver</A> — boolean expression simplification</p>
+        </Row>
+
+        <Row label="Connect" delay={0.3}>
+          <p>
+            <A href={links.linkedin}>LinkedIn</A>
+            {" · "}
+            <A href={links.github}>GitHub</A>
+            {" · "}
+            <a href="mailto:michaelhum28@gmail.com" className="font-semibold hover:underline">michaelhum28@gmail.com</a>
+          </p>
+        </Row>
+
+      </div>
+    </div>
   );
 }
