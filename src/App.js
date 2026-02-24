@@ -49,7 +49,7 @@ export default function App() {
         </motion.div>
 
         <Row label="About" delay={0.1}>
-          <p>Hi, I'm Michael, a 4th-year Computer Engineering student at the University of Ottawa. I like building things that are clean, practical, and work.</p>
+          <p>Hi, I'm Michael, a 4th-year Computer Engineering student at the University of Ottawa. I like building things that work.</p>
         </Row>
 
         <Row label="Education" delay={0.15}>
@@ -63,9 +63,9 @@ export default function App() {
         </Row>
 
         <Row label="Projects" delay={0.25}>
-          <p><A href={links.medihub}>MediHub</A> — mobile health app for medical appointments</p>
-          <p><A href={links.pathfinding}>Pathfinding Engine</A> — algorithm visualization on a grid</p>
-          <p><A href={links.kmap}>Karnaugh Map Solver</A> — boolean expression simplification</p>
+          <p><A href={links.pathfinding}>Pathfinding Engine</A> — Algorithm visualization on a grid</p>
+          <p><A href={links.medihub}>MediHub</A> — Mobile health app for medical appointments</p>
+          <p><A href={links.kmap}>Karnaugh Map Solver</A> — Boolean expression simplification</p>
         </Row>
 
         <Row label="Connect" delay={0.3}>
