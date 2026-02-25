@@ -9,6 +9,7 @@ const links = {
   uottawa: "https://www.uottawa.ca/en",
   rhhs: "https://www.richmondhillhs.org/",
   securerx: "https://secure-rx.ca/",
+  kaplet: "https://www.kaplet.ca/",
   access: "https://www.access.on.ca/",
   medihub: "https://github.com/uOttawaSEGA2023/Medihub",
   pathfinding: "https://github.com/mhum28/pathfinding-engine",
@@ -53,19 +54,20 @@ export default function App() {
         </Row>
 
         <Row label="Education" delay={0.15}>
-          <p className="flex justify-between"><span>B.Eng. Computer Engineering · <A href={links.uottawa}>University of Ottawa</A></span><span className="text-gray-400 shrink-0 ml-4">2022 – 2026</span></p>
-          <p className="flex justify-between"><span>High School · <A href={links.rhhs}>Richmond Hill HS</A></span><span className="text-gray-400 shrink-0 ml-4">2018 – 2022</span></p>
+          <p className="flex justify-between"><span><A href={links.uottawa}>University of Ottawa</A> · B.Eng. Computer Engineering</span><span className="text-gray-400 shrink-0 ml-4">2022 – 2026</span></p>
+          <p className="flex justify-between"><span><A href={links.rhhs}>Richmond Hill HS</A> · High School</span><span className="text-gray-400 shrink-0 ml-4">2018 – 2022</span></p>
         </Row>
 
         <Row label="Experience" delay={0.2}>
-          <p className="flex justify-between"><span>Software Engineer · <A href={links.securerx}>SecureRx Technologies</A></span><span className="text-gray-400 shrink-0 ml-4">Sep – Present</span></p>
-          <p className="flex justify-between"><span>Software Developer · <A href={links.access}>Access Group Inc.</A></span><span className="text-gray-400 shrink-0 ml-4">May – Aug 2025</span></p>
+          <p className="flex justify-between"><span><A href={links.securerx}>SecureRx Technologies</A> · Software Engineer Intern</span><span className="text-gray-400 shrink-0 ml-4">Jan – Present</span></p>
+          <p className="flex justify-between"><span><A href={links.kaplet}>Kaplet</A> · Software Engineer Intern</span><span className="text-gray-400 shrink-0 ml-4">Sep – Dec 2025</span></p>
+          <p className="flex justify-between"><span><A href={links.access}>Access Group Inc.</A> · Software Developer Intern</span><span className="text-gray-400 shrink-0 ml-4">May – Aug 2025</span></p>
         </Row>
 
         <Row label="Projects" delay={0.25}>
-          <p><A href={links.pathfinding}>Pathfinding Engine</A> — Algorithm visualization on a grid</p>
-          <p><A href={links.medihub}>MediHub</A> — Mobile health app for medical appointments</p>
-          <p><A href={links.kmap}>Karnaugh Map Solver</A> — Boolean expression simplification</p>
+          <p><A href={links.pathfinding}>Pathfinding Engine</A> · Algorithm visualization on a grid</p>
+          <p><A href={links.medihub}>MediHub</A> · Mobile health app for medical appointments</p>
+          <p><A href={links.kmap}>Karnaugh Map Solver</A> · Boolean expression simplification</p>
         </Row>
 
         <Row label="Connect" delay={0.3}>
